@@ -13,76 +13,93 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 
 const DATA = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
+    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
+    number: '255',
+    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
+    desk_tag: '1',
+    ticket_tag:'A',
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
+    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
+    number: '256',
+    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
+    desk_tag: '2',
+    ticket_tag:'A',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
+    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
+    number: '257',
+    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
+    desk_tag: '3',
+    ticket_tag:'A',
+  },
+  {
+    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
+    number: '258',
+    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
+    desk_tag: '1',
+    ticket_tag:'A',
+  },
+  {
+    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
+    number: '257',
+    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
+    desk_tag: '3',
+    ticket_tag:'A',
+  },
+  {
+    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
+    number: '258',
+    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
+    desk_tag: '1',
+    ticket_tag:'A',
+  },
+  {
+    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
+    number: '257',
+    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
+    desk_tag: '3',
+    ticket_tag:'A',
+  },
+  {
+    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
+    number: '258',
+    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
+    desk_tag: '1',
+    ticket_tag:'A',
+  },
+    {
+    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
+    number: '257',
+    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
+    desk_tag: '3',
+    ticket_tag:'A',
+  },
+  {
+    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
+    number: '258',
+    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
+    desk_tag: '1',
+    ticket_tag:'A',
   },
 ];
 
-function Item({ id, title, selected, onSelect }) {
-  return (
-    <TouchableOpacity
-      onPress={() => onSelect(id)}
-      style={[
-        styles.item,
-        { backgroundColor: selected ? '#6e3b6e' : '#f9c2ff' },
-      ]}
-    >
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.title}>{title}</Text>
-    </TouchableOpacity>
-  );
-}
-
-function ItemQueue({ id, title, selected, onSelect }) {
+function ItemQueue({ id, ticket_tag, number, desk_tag, selected, onSelect }) {
   return (
     <View
     style={[styles.item,{
-      
       flexDirection: 'row',
-      height: 100,
+      height: 50,
       //padding: 20,
     }]}>
       {/* #36669b */}
-    <View style={{backgroundColor: '#408abf', flex: 0.7}}>
-      <Text style={styles.title}>Hello World!</Text>
+    <View style={[styles.leftData, styles.header, {backgroundColor: '#408abf', flex: 0.7}]}>
+      <Text style={styles.title}>{ticket_tag} {number}</Text>
     </View>
-    <View style={{backgroundColor: '#ff6b00', flex: 0.4}} />
-    
+    <View style={[styles.rightData, styles.header, {backgroundColor: '#ff6b00', flex: 0.4}]}>
+      <Text style={styles.title}>{desk_tag}</Text>
+    </View>
   </View> 
-    // <View
-    // style={[
-    //   styles.item,
-    //   { backgroundColor: selected ? '#6e3b6e' : '#f9c2ff' },
-    // ]}
-    // >
-    //   <View style={{backgroundColor: 'blue', flex: 0.3}} >
-    //     <Text>Hello World!</Text>
-    //   </View>
-    //   <View style={{backgroundColor: 'red', flex: 0.5}} >
-    //     <Text style={styles.title}>{title}</Text>
-    //   </View>
-      
-      
-    // </View>
-
-    // <TouchableOpacity
-    //   onPress={() => onSelect(id)}
-    //   style={[
-    //     styles.item,
-    //     { backgroundColor: selected ? '#6e3b6e' : '#f9c2ff' },
-    //   ]}
-    // >
-    //   <Text style={styles.title}>{title}</Text>
-    //   <Text style={styles.title}>{title}</Text>
-    // </TouchableOpacity>
   );
 }
 
@@ -100,55 +117,20 @@ export default function App() {
   );
 
   return (
-   
- 
-
-    <SafeAreaView style={styles.container}>
-         
+      <SafeAreaView style={styles.container}>      
       {/* Tittle informations */}
       <View
         style={[styles.item,{
         flexDirection: 'row',
-        height: 50,
-        borderRadius: 600
-        //padding: 20,
+        height: 50
       }]}>
-        <View style={[styles.header, {backgroundColor: '#36669b', flex: 0.7, borderTopLeftRadius: 5,
-          borderBottomLeftRadius: 5}]}>
+        <View style={[styles.header, styles.leftData, {backgroundColor: '#36669b', flex: 0.7}]}>
           <Text style={styles.header}>Senha</Text>
         </View>
-        <View style={{backgroundColor: '#36669b', flex: 0.4, borderTopRightRadius: 5,
-          borderBottomRightRadius: 5}}>
+        <View style={[styles.header, styles.rightData, {backgroundColor: '#36669b', flex: 0.4}]}>
             <Text style={styles.header}>Balcão</Text>
           </View>
       </View> 
-
-      {/* First view */}
-      {/* <View
-        style={{
-          flexDirection: 'row',
-          height: 100,
-          padding: 20,
-        }}>
-        <View style={{backgroundColor: 'blue', flex: 0.3}} />
-        <View style={{backgroundColor: 'red', flex: 0.5}} />
-        <Text>Hello World!</Text>
-      </View> */}
-
-      <FlatList
-        data={DATA}
-        renderItem={({ item }) => (
-          <Item
-            numColumns={2}
-            id={item.id}
-            title={item.title}
-            selected={!!selected.get(item.id)}
-            onSelect={onSelect}
-          />
-        )}
-        keyExtractor={item => item.id}
-        extraData={selected}
-      />
       
       <FlatList
         data={DATA}
@@ -156,9 +138,12 @@ export default function App() {
         extraData={selected}
         renderItem={({ item }) => (
           <ItemQueue
+          // id, ticket_tag, number, desk_tag, 
             numColumns={2}
             id={item.id}
-            title={item.title}
+            ticket_tag={item.ticket_tag}
+            number={item.number}
+            desk_tag={item.desk_tag}
             selected={!!selected.get(item.id)}
             onSelect={onSelect}
           />
@@ -179,20 +164,28 @@ const styles = StyleSheet.create({
   item: {
     borderColor: 'white',
     borderRadius: 2,
-    backgroundColor: '#f9c2ff',
+    //backgroundColor: '#f9c2ff',
     //padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
   },
   title: {
     fontSize: 32,
-    color: 'white'
+    color: 'white',
   },
   header: {
     fontSize: 32,
     alignContent: "flex-end",
     alignItems:"center",
     color: 'white'
+  },
+  leftData:{
+    borderTopLeftRadius: 5,
+    borderBottomLeftRadius: 5
+  },
+  rightData:{
+    borderTopRightRadius: 5,
+    borderBottomRightRadius: 5
   },
   row: {
     flex: 1,
