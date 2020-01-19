@@ -49,6 +49,7 @@ const AppNavigator = createStackNavigator({
   }
 });
 
+
 const AppContainer = createAppContainer(AppNavigator);
 
 const styles = StyleSheet.create({

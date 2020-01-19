@@ -1,4 +1,7 @@
 import React from 'react';
+
+import Echo from 'laravel-echo';
+import socketio from 'socket.io-client';
 import {
   SafeAreaView,
   TouchableOpacity,
@@ -11,6 +14,20 @@ import {
 import Constants from 'expo-constants';
 import { BorderlessButton } from 'react-native-gesture-handler';
 
+
+const echo = new Echo({
+  host: 'http://192.168.0.177:6001',
+  broadcaster: 'socket.io',
+  client: socketio,
+});
+
+echo
+  .channel('chats.1')
+  .listen('NewMessageEvent', ev => console.log(ev.message.text));
+
+
+console.log("Teste");
+
 const DATA = [
   {
     id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
@@ -20,68 +37,12 @@ const DATA = [
     ticket_tag:'A',
   },
   {
-    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
+    id: '438e89e1-361c-11ea-b9b9-901b0ef6f012',
     number: '256',
-    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
+    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a5',
     desk_tag: '2',
     ticket_tag:'A',
-  },
-  {
-    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
-    number: '257',
-    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
-    desk_tag: '3',
-    ticket_tag:'A',
-  },
-  {
-    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
-    number: '258',
-    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
-    desk_tag: '1',
-    ticket_tag:'A',
-  },
-  {
-    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
-    number: '257',
-    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
-    desk_tag: '3',
-    ticket_tag:'A',
-  },
-  {
-    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
-    number: '258',
-    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
-    desk_tag: '1',
-    ticket_tag:'A',
-  },
-  {
-    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
-    number: '257',
-    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
-    desk_tag: '3',
-    ticket_tag:'A',
-  },
-  {
-    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
-    number: '258',
-    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
-    desk_tag: '1',
-    ticket_tag:'A',
-  },
-    {
-    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
-    number: '257',
-    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
-    desk_tag: '3',
-    ticket_tag:'A',
-  },
-  {
-    id: '438e89e1-361c-11ea-b9b9-901b0ef6f072',
-    number: '258',
-    desk_id:'8f486c93-c37b-49d0-91fc-7dc8a398d5a4',
-    desk_tag: '1',
-    ticket_tag:'A',
-  },
+  }
 ];
 
 function ItemQueue({ id, ticket_tag, number, desk_tag, selected, onSelect }) {
@@ -104,6 +65,8 @@ function ItemQueue({ id, ticket_tag, number, desk_tag, selected, onSelect }) {
 }
 
 export default function App() {
+
+  
   const [selected, setSelected] = React.useState(new Map());
 
   const onSelect = React.useCallback(
